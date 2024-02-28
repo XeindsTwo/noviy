@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <div class="container">
+    <form class="auth__form" th:action="@{/login}" method="post">
+      <span class="error error--active" th:if="${loginError}" th:text="${loginError}"></span>
+      <label class="label" for="username">Логин</label>
+      <input class="input" type="text" id="username" name="username" required placeholder="Введите логин">
+
+      <label class="label" for="password">Пароль</label>
+      <input class="input" type="password" id="password" name="password" required placeholder="Введите пароль">
+      <p class="authorization__info">
+        Нет аккаунта? Тогда <a th:href="@{/registration}">зарегистрируйтесь</a>!
+      </p>
+      <button class="btn" type="submit">Войти</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

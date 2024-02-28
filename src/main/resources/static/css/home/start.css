@@ -1,0 +1,29 @@
+.start__title {
+  max-width: 800px;
+  line-height: 1.15;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.start__text {
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.start__link {
+  display: inline-block;
+  border-radius: 7px;
+  border: 1px solid var(--accent);
+  padding: 16px 23px;
+  transition: color .4s, border .4s, background-color .4s;
+}
+
+.start__link:hover {
+  color: var(--accent);
+}
+
+.start__link:focus {
+  background-color: var(--accent);
+  color: #fff;
+}

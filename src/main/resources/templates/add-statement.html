@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <header th:replace="~{fragments/header}"></header>
+  <section class="statements">
+    <div class="container">
+      <a class="statements__back" th:href="@{/}">Вернуться на главную</a>
+      <h1 class="statements__title">Создание заявления</h1>
+      <form class="statements__form" th:action="@{/statements/add}" method="post">
+        <ul class="statements__list">
+          <li>
+            <label class="label" for="description">Описание</label>
+            <textarea class="input input--textarea" id="description" name="description" maxlength="1200" required
+                      placeholder="Напишите текст"></textarea>
+          </li>
+          <li>
+            <label class="label" for="carNumber">Гос. номер автомобиля</label>
+            <input class="input" id="carNumber" name="carNumber" maxlength="12" required placeholder="Напишите номер">
+          </li>
+        </ul>
+        <button class="btn" type="submit">Отправить</button>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>

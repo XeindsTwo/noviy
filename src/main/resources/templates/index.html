@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <header th:replace="~{fragments/header}"></header>
+  <section class="start indent">
+    <div class="container">
+      <div class="start__content">
+        <h1 class="start__title title">
+          Отправьте быстро письмо государственному органу об нарушениях дорожного движения
+        </h1>
+        <p class="start__text">
+          Добро пожаловать в систему, где граждане могут быстро и удобно отправлять заявления о нарушениях
+          дорожного движения. Наш сервис предоставляет возможность быстро и эффективно донести ваше мнение
+          до государственных органов.
+        </p>
+        <a class="start__link" th:href="@{/statements}">Узнать подробнее</a>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <header th:replace="~{fragments/header}"></header>
+  <section class="statements statements--bottom">
+    <div class="container">
+      <a class="statements__back" th:href="@{/admin/statements}">Вернуться назад</a>
+      <h1 class="statements__title">Редактирование заявления</h1>
+      <span class="statements__user" th:text="'Пользователь - ' + ${user.username}"></span>
+      <span class="statements__plate" th:text="'Номерной знак - ' + ${statement.carNumber}"></span>
+      <p class="statements__text" th:text="'Описание - ' + ${statement.description}"></p>
+      <form method="post" th:action="@{'/admin/statements/edit/' + ${statement.id}}">
+        <h2 class="statements__subtitle">Редактирование статуса</h2>
+        <select class="statements__select" id="status" name="status">
+          <option th:each="status : ${allStatus}"
+                  th:value="${status}"
+                  th:text="${status.status}"
+                  th:selected="${status eq statement.status}"
+          >
+
+          </option>
+        </select>
+        <button class="btn" type="submit">Сохранить изменения</button>
+      </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>

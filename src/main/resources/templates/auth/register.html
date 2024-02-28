@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <div class="container">
+    <form class="auth__form" th:action="@{/registration/save}" th:object="${user}" method="post">
+    <span
+            class="error error--active"
+            th:if="${#fields.hasErrors('username')}"
+            th:errors="*{username}"
+    ></span>
+      <label class="label" for="username">Логин</label>
+      <input class="input" minlength="5" maxlength="80"
+             type="text" id="username" name="username"
+             required placeholder="Введите логин" th:field="*{username}"
+             pattern="[a-zA-Z0-9]+" title="Никнейм должен содержать только латиницу и цифры"
+      >
+
+      <label class="label" for="password">Пароль</label>
+      <input class="input" minlength="6" maxlength="120"
+             type="password" id="password" name="password"
+             required placeholder="Введите пароль"
+             pattern="[a-zA-Z0-9]+" title="Пароль должен содержать только латиницу и цифры"
+      >
+
+      <label class="label" for="phone">Телефон</label>
+      <input class="input" maxlength="50"
+             type="text" id="phone" name="phone"
+             required placeholder="Введите телефон"
+             pattern="\+7\(\d{3}\)-\d{3}-\d{2}-\d{2}" title="Пожалуйста, введите номер в формате +7(ХХХ)-ХХХ-ХХ-ХХ"
+      >
+
+      <label class="label" for="fio">ФИО</label>
+      <input class="input" maxlength="160"
+             type="text" id="fio" name="fio"
+             required placeholder="Введите ФИО"
+             pattern="[а-яА-ЯЁё\s]+" title="ФИО может включать в себя только кириллицу и пробелы"
+      >
+
+      <label class="label" for="email">Почта</label>
+      <input class="input" maxlength="100"
+             type="email" id="email" name="email"
+             required placeholder="Введите почту"
+      >
+      <p class="authorization__info">
+        Есть аккаунт? Тогда <a th:href="@{/login}">авторизуйтесь</a>!
+      </p>
+      <button class="btn" type="submit">Зарегистрироваться</button>
+    </form>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head}"></head>
+<body class="body">
+
+<main>
+  <header th:replace="~{fragments/header}"></header>
+  <section class="statements statements--bottom">
+    <div class="container">
+      <a class="statements__back" th:href="@{/}">Вернуться на главную</a>
+      <h1 class="statements__title">Мои заявления</h1>
+      <p th:if="${#lists.isEmpty(statements)}">
+        У вас пока нет заявлений, но вы можете их
+        <a class="statements__create" th:href="@{/statements/add}">создать</a>
+      </p>
+      <a
+              class="btn btn--bottom"
+              th:href="@{/statements/add}"
+              th:if="${not #lists.isEmpty(statements)}"
+      >
+        Создать заявление
+      </a>
+      <ul class="statements__items" th:if="${not #lists.isEmpty(statements)}">
+        <li class="statements__item" th:each="statement : ${statements}">
+          <span class="statements__status" th:text="${statement.status.getStatus()}"></span>
+          <span class="statements__plate" th:text="'Номерной знак - ' + ${statement.carNumber}"></span>
+          <span>Описание: <br></span>
+          <p class="statements__description" th:text="${statement.description}"></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+</body>
+</html>
